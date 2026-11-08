@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarifa Transporte</title>
+</head>
+
+<body style="background-color: #eef3f7; text-align: center; font-family: Arial, sans-serif;">
+    <h1> TARIFA DE TRANSPORTE </h1>
+    <script>
+        let Nombre = prompt("Digite su Nombre")
+        let Transporte = parseInt(prompt("Tipo de transporte: 1 = Bus Urbano, 2 = Metro, 3 = Taxi, 4 = Intermunicipal"))
+        let Condicion = parseInt(prompt("Condicion especial: 1 = Estudiante, 2 = Adulto mayor, 3 = Ninguna"))
+
+        let NombreTransporte = ""
+        let Valor = 0
+        let Color = ""
+        let Descuento = 0
+
+        switch (Transporte) {
+            case 1:
+                NombreTransporte = "Bus Urbano"
+                Valor = 2500
+                Color = "green"
+                break
+            case 2:
+                NombreTransporte = "Metro"
+                Valor = 2800
+                Color = "blue"
+                break
+            case 3:
+                NombreTransporte = "Taxi"
+                Valor = 5000
+                Color = "goldenrod"
+                break
+            case 4:
+                NombreTransporte = "Intermunicipal"
+                Valor = 10000
+                Color = "darkorange"
+                break
+            default:
+                NombreTransporte = "No valido"
+                Color = "red"
+        }
+
+        if (Condicion == 1) {
+            Descuento = 20
+        }
+        else if (Condicion == 2) {
+            Descuento = 30
+        }
+        else {
+            Descuento = 0
+        }
+
+        let Total = Valor - (Valor * Descuento / 100)
+
+        document.write("<h2 style='color:" + Color + "'>" + NombreTransporte + "</h2>")
+        document.write("<p>Usuario: " + Nombre + "</p>")
+        document.write("<p>Transporte: " + NombreTransporte + "</p>")
+        document.write("<p>Descuento aplicado: " + Descuento + "%</p>")
+        document.write("<h3 style='color:" + Color + "'>Total a pagar: $" + Total + "</h3>")
+    </script>
+</body>
+</html>
